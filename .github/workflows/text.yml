@@ -1,0 +1,19 @@
+name: Deploy Flask App
+
+
+on:
+  push:
+    branches:
+      - main
+
+
+jobs:
+  deploy-flask:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    environment: produccion
+    steps:
+      - name: Mostrar mensaje
+        run: echo "Desplegando aplicación Flask"
