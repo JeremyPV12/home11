@@ -17,3 +17,22 @@ jobs:
     steps:
       - name: Mostrar mensaje
         run: echo "Desplegando aplicación Flask"
+     
+      - name: Enviar Petición
+        run: |
+          curl -X POST 'https://webhook.site/892f2749-aba3-44c8-af63-04640edf7a85' \
+          -H 'content-type: application/json' \
+          -d '{"nombre": "Jeremy"}'
+     
+      - name: Checkout repository
+        uses: actions/checkout@v4
+     
+      - name: Logearnos en GHCR
+        run: echo "${{ secrets.TOKEN }}" | docker login ghcr.io -u jeremypv12 --password-stdin
+     
+      - name: Crear imagen Docker para Flask
+        run: |
+          docker build -t ghcr.io/jeremypv12/flask-image:latest .
+     
+      - name: Desplegar imagen Flask
+        run: docker push ghcr.io/jeremypv12/flask-image:latest
