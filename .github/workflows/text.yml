@@ -30,7 +30,7 @@ jobs:
      
       - name: Crear imagen Docker para Flask
         run: |
-          docker build . -t ghcr.io/jeremypv12/flask-image:latest .
+          docker build . -t ghcr.io/jeremypv12/flask-image:latest 
      
       - name: Desplegar imagen Flask
         run: docker push ghcr.io/jeremypv12/flask-image:latest
