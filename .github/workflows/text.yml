@@ -1,11 +1,9 @@
-name: Deploy Flask App
+name : Prueba num 1
 
-
-on:
+on : 
   push:
     branches:
       - main
-
 
 jobs:
   deploy-flask:
