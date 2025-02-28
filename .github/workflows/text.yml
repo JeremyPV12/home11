@@ -13,7 +13,7 @@ jobs:
       packages: write
     environment: produccion
     steps:
-      - name: Mostrar mensaje
+      - name: Mostrar un mensaje
         run: echo "Desplegando aplicación Flask"
      
       - name: Enviar Petición
@@ -22,7 +22,7 @@ jobs:
           -H 'content-type: application/json' \
           -d '{"nombre": "Jeremy"}'
      
-      - name: Checkout repository
+      - name: Checkout repository 12
         uses: actions/checkout@v4
      
       - name: Logearnos en GHCR
@@ -30,7 +30,7 @@ jobs:
      
       - name: Crear imagen Docker para Flask
         run: |
-          docker build -t ghcr.io/jeremypv12/flask-image:latest .
+          docker build . -t ghcr.io/jeremypv12/flask-image:latest .
      
       - name: Desplegar imagen Flask
         run: docker push ghcr.io/jeremypv12/flask-image:latest
